@@ -1,6 +1,5 @@
 public class Data {
     private String value;
-    // Дополнительные поля на усмотрение разработчика
 
     public Data(String value) {
         this.value = value;

@@ -1,8 +1,9 @@
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.io.*;
+//import Data.java;
 
-    public class ThreadsExample {
+public class ThreadsExample {
 
         private static Data data;
 
@@ -58,4 +59,4 @@ import java.io.*;
             transformer.join();
             writer.join();
         }
-    }
+}
