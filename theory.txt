@@ -12,7 +12,7 @@ reverse(coll) - переворачивает коллекцию
 
 Класс Arrays предоставляет методы для работы с массивами
 
-Примеры: где numbers - это  int[] numbers
+Примеры: где numbers - это int[] numbers
 
 Arrays.sort(numbers);
 Arrays.copyOf(numbers, numbers.length); 
