@@ -1,0 +1,236 @@
+1. Класс ArrayDeque. Основные реализации. Как работают вставка, удаление, поиск элемента на примере одной из реализаций.
+ 
+ArrayDeque — это класс, реализующий двустороннюю очередь на основе массива изменяемого размера.
+
++ обеспечивает постоянную производительность при вставке и удалении элементов с обоих концов очереди
++ может динамически увеличиваться и уменьшаться в зависимости от количества элементов
++ эффективен по памяти, не требует лишней памяти, например, на узлы связанного списка
+- не потокобезопасен по умолчанию
+
+
+Класс ArrayDeque реализует Queue и Deque
+Все реализованные интерфейсы ArrayDeque в иерархии Serializable, Cloneable, Iterable<E>, Collection<E>, Deque<E>, Queue<E>
+
+
+Конструкторы:
+
+ArrayDeque<E> dq = new ArrayDeque<E>(); - ArrayDeque пустой с размером 16 элементов
+
+ArrayDeque<E> dq = new ArrayDeque<E>(Collection col); - элементы ArrayDeque такие же как в указанной коллекции
+
+ArrayDeque<E> dq = new ArrayDeque<E>(int numofElements); - ArrayDeque с numofElements элементов
+
+
+
+Элемент e можно добавлять в ArrayDeque спереди  с помощью addFirst(e)
+или offerFirst(Element e)  (возвратит False вместо ошибки в случае неудачи)
+
+ add(e) или addLast(e) - добавить в конце
+offer(Element e)	или offerLast(Element e) - добавить в конце (возвратит False вместо ошибки в случае неудачи)
+
+
+Удаление всех элементов - clear() ,
+
+Посмотреть и удалить: в начале poll() , removeLast() и remove() в конце 
+
+removeFirstOccurrence​(Object o)	- УДАЛИТЬ первый o. removeLastOccurrence​(Object o)	- последний
+remove​(Object o)	 - удалить все o
+removeAll​(Collection<?> c)	- удалить все элементы которые также есть в c. 
+removeIf​(Predicate<? super Element> filter) - удалить все элементы по предикату
+
+
+На примере одной из реализаций:
+ 
+import java.util.*;
+ 
+// ArrayDequeDemo
+public class Main {
+    public static void main(String[] args)
+    {
+        // Creating and initializing deque
+        // Declaring object of integer type
+        Deque<Integer> de_que = new ArrayDeque<Integer>(10);
+ 
+        // Operations 1
+        // add() method
+ 
+        // Adding custom elements
+        // using add() method to insert
+        de_que.add(10);
+        de_que.add(20);
+        de_que.add(30);
+        de_que.add(40);
+        de_que.add(50);
+ 
+        // Iterating using for each loop
+        for (Integer element : de_que) {
+            // Print the corresponding element
+            System.out.println("Element : " + element);
+        }
+ 
+        // Operation 2
+        // clear() method
+        System.out.println("Using clear() ");
+ 
+        // Clearing all elements using clear() method
+        de_que.clear();
+ 
+        // Operations 3
+        // addFirst() method
+ 
+        // Inserting at the start
+        de_que.addFirst(564);
+        de_que.addFirst(291);
+ 
+        // Operation 4
+        // addLast() method
+        // Inserting at end
+        de_que.addLast(24);
+        de_que.addLast(14);
+ 
+        // Display message
+        System.out.println(
+            "Above elements are removed now");
+ 
+        // Iterators
+ 
+        // Display message
+        System.out.println(
+            "Elements of deque using Iterator :");
+ 
+        for (Iterator itr = de_que.iterator();
+             itr.hasNext();) {
+            System.out.println(itr.next());
+        }
+ 
+        // descendingIterator()
+        // To reverse the deque order
+        System.out.println(
+            "Elements of deque in reverse order :");
+ 
+        for (Iterator dItr = de_que.descendingIterator();
+             dItr.hasNext();) {
+            System.out.println(dItr.next());
+        }
+ 
+        // Operation 5
+        // element() method : to get Head element
+        System.out.println(
+            "\nHead Element using element(): "
+            + de_que.element());
+ 
+        // Operation 6
+        // getFirst() method : to get Head element
+        System.out.println("Head Element using getFirst(): "
+                           + de_que.getFirst());
+ 
+        // Operation 7
+        // getLast() method : to get last element
+        System.out.println("Last Element using getLast(): "
+                           + de_que.getLast());
+ 
+        // Operation 8
+        // toArray() method :
+        Object[] arr = de_que.toArray();
+        System.out.println("\nArray Size : " + arr.length);
+ 
+        System.out.print("Array elements : ");
+ 
+        for (int i = 0; i < arr.length; i++)
+            System.out.print(" " + arr[i]);
+ 
+        // Operation 9
+        // peek() method : to get head
+        System.out.println("\nHead element : "
+                           + de_que.peek());
+ 
+        // Operation 10
+        // poll() method : to get head
+        System.out.println("Head element poll : "
+                           + de_que.poll());
+ 
+        // Operation 11
+        // push() method
+        de_que.push(265);
+        de_que.push(984);
+        de_que.push(2365);
+ 
+        // Operation 12
+        // remove() method : to get head
+        System.out.println("Head element remove : "
+                           + de_que.remove());
+ 
+        System.out.println("The final array is: " + de_que);
+    }
+}
+
+
+
+================================
+2. Классы, интерфейсы и перечисления. Ключевые слова abstract, interface, enum, default. Разница между абстрактным классом и интерфейсом. Вложенные классы.
+
+
+
+Класс это схема, на основе которой создаются отдельные объекты. содержит данные для объекта и методы для работы с этими данными
+
+Интерфейс - это ссылочный тип, который может содержать только абстрактные методы, методы по умолчанию, статические методы и финальные переменные
+
+Перечисление (enumeration) - это специальный класс, который представляет группу констант
+
+
+Ключевые слова:
+abstract: Используется для объявления класса или метода абстрактным. Абстрактный класс не может быть инстанцирован и может содержать абстрактные методы. Абстрактный метод - это метод без тела, который должен быть реализован подклассами
+
+интерфейс: Ключевое слово, используемое для определения полностью абстрактного класса, который должен быть унаследован
+
+enum: Используется для определения фиксированного набора констант
+
+default: в интерфейсах ключевое слово default используется для создания метода с реализацией по умолчанию, которую можно переопределить при необходимости
+
+
+
+
+
+Разница между абстрактным классом и интерфейсом:
+
+Абстрактный класс — это класс, у которого не реализован один или больше методов (некоторые языки требуют такие методы помечать специальными ключевыми словами).
+
+Интерфейс — это абстрактный класс, у которого ни один метод не реализован, все они публичные и нет переменных класса.
+
+Интерфейс нужен обычно когда описывается только интерфейс (тавтология). Например, один класс хочет дать другому возможность доступа к некоторым своим методам, но не хочет себя «раскрывать». Поэтому он просто реализует интерфейс.
+
+Абстрактный класс нужен, когда нужно семейство классов, у которых есть много общего. Конечно, можно применить и интерфейс, но тогда нужно будет писать много идентичного кода.
+
+В некоторых языках (С++) специального ключевого слова для обозначения интерфейсов нет.
+
+Можно считать, что любой интерфейс — это уже абстрактный класс, но не наоборот.
+
+---Абстрактный класс:
+
+. Может иметь абстрактные и неабстрактные методы
+
+. Может иметь конструкторы и выполнять операции во время инстанцирования
+
+. Поддерживает наследование и может предоставлять общую базовую логику
+
+. Может иметь модификаторы доступа для методов, конструкторов и полей
+
+
+
+---Интерфейс:
+
+
+. До Java 7 может иметь только абстрактные методы. Начиная с Java 8, он может иметь методы по умолчанию с реализацией и статические методы
+
+. Не имеет конструкторов и не может выполнять операции во время инстанцирования
+
+. Поддерживает несколько реализаций
+
+. Все методы по умолчанию public, а все переменные по умолчанию public static final
+
+
+
+Вложенные классы:
+делятся на две категории: статические и нестатические. Статические (ключевое слово static) вложенные классы связаны с внешним классом, в то время как нестатические вложенные классы (inner classes) связаны с экземпляром внешнего класса
+
+Классы составляют основу концепций ООП Java. Интерфейсы предоставляют шаблон, который могут реализовать классы, а перечисления представляют собой группу констант. Абстрактные классы - это полуполные классы, которые могут наследоваться, но не инстанцироваться. С другой стороны, интерфейсы полностью абстрактны и могут иметь несколько реализаций. Вложенные классы позволяют логически группировать классы, которые используются только в одном месте, что повышает степень инкапсуляции.
