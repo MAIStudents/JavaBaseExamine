@@ -16,6 +16,8 @@ public class Main {
         catch (Exception e){
             e.printStackTrace();
         }
-        exec.shutdown();
+        finally {
+            exec.shutdown();
+        }
     }
 }
