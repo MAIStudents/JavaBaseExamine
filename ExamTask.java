@@ -33,7 +33,7 @@ public class ExamTask {
                 }
             });
         
-        System.out.println(answ.toString());
+        System.out.println(answ);
         scanner.close();
     }
 }
