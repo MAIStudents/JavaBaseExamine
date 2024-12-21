@@ -29,10 +29,25 @@ public class ExamTask {
         //     .flatMap(word -> word.chars()  // Преобразуем каждое слово в IntStream символов
         //         .mapToObj(c -> (char) c))  // Преобразуем каждый символ в Character
         //     .collect(Collectors.toList());
-        // List<String> answ = 
-            input.chars()
-            .forEach(c -> System.out.print((char) c));
+        List<String> answ = new ArrayList<>();
+        answ.add("0");
+        answ.add("");
+
+        input.chars()
+            .mapToObj(c -> (char) c)
+            .forEach(c -> {
+                if (Character.isDigit(c)) {
+                    int a = Character.getNumericValue(c);
+                    int b = Integer.parseInt(answ.getFirst());
+                    if (a % 2 == 0)
+                        answ.set(0, String.valueOf(a + b));
+                } else if (Character.isLowerCase(c)) {
+                    answ.set(1, answ.get(1) + c);
+                } else if (!Character.isUpperCase(c)) {
+                    answ.add(String.valueOf(c));
+                }
+            });
         
-        // System.out.println(characters); // [a, p, p, l, e, b, a, n, a, n, a, c, h, e, r, r, y]
+        System.out.println(answ.toString());
     }
 }
