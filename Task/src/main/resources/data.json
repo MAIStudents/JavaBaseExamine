@@ -1,0 +1,26 @@
+[
+  {
+    "full_name": "jhbj",
+    "age": 30,
+    "gender": "мужской",
+    "phone_number": "+7-123-456-7890"
+  },
+  {
+    "full_name": "kjnkhi",
+    "age": 28,
+    "gender": "женский",
+    "phone_number": "+7-987-654-3210"
+  },
+  {
+    "full_name": "AАbvb",
+    "age": 35,
+    "gender": "мужской",
+    "phone_number": "+7-555-666-7777"
+  },
+  {
+    "full_name": "AAA",
+    "age": 25,
+    "gender": "женский",
+    "phone_number": "+7-321-654-0987"
+  }
+]
